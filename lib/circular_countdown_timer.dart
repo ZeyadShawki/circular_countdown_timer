@@ -56,7 +56,8 @@ class CircularCountDownTimer extends StatefulWidget {
 
   /// Text Style for Countdown Text.
   final TextStyle? textStyle;
-
+  final TextStyle? firstTextStyle;
+final String topTxt;
   /// Text Align for Countdown Text.
   final TextAlign textAlign;
 
@@ -113,7 +114,7 @@ class CircularCountDownTimer extends StatefulWidget {
     this.isTimerTextShown = true,
     this.autoStart = true,
     this.textFormat,
-    this.controller,
+    this.controller, this.firstTextStyle, required this.topTxt,
   }) : assert(initialDuration <= duration);
 
   @override
@@ -306,14 +307,27 @@ class CircularCountDownTimerState extends State<CircularCountDownTimer>
                     widget.isTimerTextShown
                         ? Align(
                             alignment: FractionalOffset.center,
-                            child: Text(
-                              time,
-                              style: widget.textStyle ??
-                                  const TextStyle(
-                                    fontSize: 16.0,
-                                    color: Colors.black,
-                                  ),
-                              textAlign: widget.textAlign,
+                            child: Column(
+                              children: [
+                                  Text(
+                                 widget.topTxt,
+                                  style: 
+                                      widget.firstTextStyle ?? TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.black,
+                                      ),
+                                  textAlign: widget.textAlign,
+                                ),
+                                Text(
+                                  time,
+                                  style: widget.textStyle ??
+                                      const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.black,
+                                      ),
+                                  textAlign: widget.textAlign,
+                                ),
+                              ],
                             ),
                           )
                         : Container(),
