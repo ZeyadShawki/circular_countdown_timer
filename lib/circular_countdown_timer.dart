@@ -57,7 +57,8 @@ class CircularCountDownTimer extends StatefulWidget {
   /// Text Style for Countdown Text.
   final TextStyle? textStyle;
   final TextStyle? firstTextStyle;
-final String topTxt;
+  final String topTxt;
+
   /// Text Align for Countdown Text.
   final TextAlign textAlign;
 
@@ -114,7 +115,9 @@ final String topTxt;
     this.isTimerTextShown = true,
     this.autoStart = true,
     this.textFormat,
-    this.controller, this.firstTextStyle, required this.topTxt,
+    this.controller,
+    this.firstTextStyle,
+    required this.topTxt,
   }) : assert(initialDuration <= duration);
 
   @override
@@ -309,10 +312,13 @@ class CircularCountDownTimerState extends State<CircularCountDownTimer>
                             alignment: FractionalOffset.center,
                             child: Column(
                               children: [
-                                  Text(
-                                 widget.topTxt,
-                                  style: 
-                                      widget.firstTextStyle ?? TextStyle(
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  widget.topTxt,
+                                  style: widget.firstTextStyle ??
+                                      TextStyle(
                                         fontSize: 16.0,
                                         color: Colors.black,
                                       ),
