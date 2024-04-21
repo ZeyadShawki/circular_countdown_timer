@@ -79,7 +79,7 @@ class CircularCountDownTimer extends StatefulWidget {
 
   /// Handles the timer start.
   final bool autoStart;
-
+final double sizedBoxHeight;
   /* 
    * Function to format the text.
    * Allows you to format the current duration to any String.
@@ -117,7 +117,7 @@ class CircularCountDownTimer extends StatefulWidget {
     this.textFormat,
     this.controller,
     this.firstTextStyle,
-    required this.topTxt,
+    required this.topTxt, required this.sizedBoxHeight,
   }) : assert(initialDuration <= duration);
 
   @override
@@ -313,7 +313,7 @@ class CircularCountDownTimerState extends State<CircularCountDownTimer>
                             child: Column(
                               children: [
                                 SizedBox(
-                                  height: 20,
+                                  height: widget.sizedBoxHeight,
                                 ),
                                 Text(
                                   widget.topTxt,

@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // other durations by it's default format
               return Function.apply(defaultFormatterFunction, [duration]);
             }
-          }, topTxt: '',
+          }, topTxt: '', sizedBoxHeight: 10,
         ),
       ),
       floatingActionButton: Row(
